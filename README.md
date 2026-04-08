@@ -4,7 +4,7 @@ A browser-based review UI for Claude Code plans. When Claude Code enters plan mo
 
 Select any text, add comments, copy your feedback to clipboard, and paste it back in the terminal.
 
-<!-- TODO: add screenshot -->
+![cc-plan-viewer screenshot](screenshot.png)
 
 ## Install
 
