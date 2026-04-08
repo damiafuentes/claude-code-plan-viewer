@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Prose: readable markdown ─── */
+
+.prose {
+  color: #282218;
+  line-height: 1.75;
+  max-width: none;
+  font-size: 15px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose { color: #EDE7DC; }
+}
+
+/* Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
+  color: #1a1610;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose h1, .prose h2, .prose h3,
+  .prose h4, .prose h5, .prose h6 {
+    color: #F5F0E5;
+  }
+}
+
+.prose h1 { font-size: 1.75rem; margin-top: 0; }
+.prose h2 {
+  font-size: 1.35rem;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid #DFD7C6;
+}
+.prose h3 { font-size: 1.15rem; }
+.prose h4 { font-size: 1rem; font-weight: 600; }
+
+@media (prefers-color-scheme: dark) {
+  .prose h2 { border-bottom-color: #44403B; }
+}
+
+/* Paragraphs */
+.prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/* Lists */
+.prose ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.6em;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.6em;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.prose li::marker {
+  color: #8E8370;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose li::marker { color: #6D676A; }
+}
+
+/* Bold & italic */
+.prose strong {
+  font-weight: 700;
+  color: #1a1610;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose strong { color: #F5F0E5; }
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Links */
+.prose a {
+  color: #B05A3C;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #B05A3C66;
+}
+
+.prose a:hover {
+  text-decoration-color: #B05A3C;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose a {
+    color: #D6896E;
+    text-decoration-color: #D6896E66;
+  }
+  .prose a:hover { text-decoration-color: #D6896E; }
+}
+
+/* ─── Inline code ─── */
+.prose code {
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  padding: 0.2em 0.45em;
+  border-radius: 5px;
+  background: #E8E0D0;
+  color: #5C3D2E;
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose code {
+    background: #382F2A;
+    color: #E0C4A8;
+  }
+}
+
+/* ─── Code blocks ─── */
+.prose pre {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1.1em 1.3em;
+  border-radius: 10px;
+  overflow-x: auto;
+  background: #2B2420;
+  border: 1px solid #3D3530;
+  line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose pre {
+    background: #1A1514;
+    border-color: #332C28;
+  }
+}
+
+.prose pre code {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 0.8125em;
+  font-weight: 400;
+  color: #E8DED0;
+}
+
+/* ─── Syntax highlighting (warm palette) ─── */
+.prose pre code .hljs-keyword,
+.prose pre code .hljs-selector-tag,
+.prose pre code .hljs-built_in { color: #E8A87C; }
+
+.prose pre code .hljs-string,
+.prose pre code .hljs-attr { color: #A8C9A0; }
+
+.prose pre code .hljs-number,
+.prose pre code .hljs-literal { color: #D4A574; }
+
+.prose pre code .hljs-type,
+.prose pre code .hljs-title,
+.prose pre code .hljs-class .hljs-title { color: #C4B4E0; font-weight: 500; }
+
+.prose pre code .hljs-function,
+.prose pre code .hljs-title.function_ { color: #8CC8D0; }
+
+.prose pre code .hljs-comment,
+.prose pre code .hljs-doctag { color: #7A7068; font-style: italic; }
+
+.prose pre code .hljs-variable,
+.prose pre code .hljs-template-variable { color: #E0C4A8; }
+
+.prose pre code .hljs-property { color: #D0B8A0; }
+
+.prose pre code .hljs-meta,
+.prose pre code .hljs-preprocessor { color: #B0A090; }
+
+.prose pre code .hljs-punctuation { color: #9A8E80; }
+
+.prose pre code .hljs-addition { color: #A8C9A0; background: rgba(168, 201, 160, 0.1); }
+.prose pre code .hljs-deletion { color: #D08080; background: rgba(208, 128, 128, 0.1); }
+
+/* ─── Blockquotes ─── */
+.prose blockquote {
+  border-left: 3px solid #CD7357;
+  padding-left: 1em;
+  margin-left: 0;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  color: #504838;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose blockquote {
+    border-left-color: #D67F63;
+    color: #B8AEA0;
+  }
+}
+
+/* ─── Tables ─── */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 0.875em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #DFD7C6;
+  padding: 0.6em 0.85em;
+  text-align: left;
+}
+
+.prose th {
+  font-weight: 600;
+  background: #EDE5D5;
+  color: #1a1610;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose th, .prose td {
+    border-color: #44403B;
+  }
+  .prose th {
+    background: #332C28;
+    color: #F5F0E5;
+  }
+}
+
+/* ─── Horizontal rules ─── */
+.prose hr {
+  border: none;
+  border-top: 1px solid #DFD7C6;
+  margin: 2em 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose hr { border-top-color: #44403B; }
+}
+
+/* ─── Comment highlight ─── */
+mark.comment-highlight {
+  background-color: rgba(205, 115, 87, 0.14);
+  border-bottom: 2px solid rgba(205, 115, 87, 0.45);
+  padding: 1px 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  color: inherit;
+}
+
+mark.comment-highlight:hover,
+mark.comment-highlight.active {
+  background-color: rgba(205, 115, 87, 0.3);
+  border-bottom-color: rgba(205, 115, 87, 0.8);
+}
+
+/* Pending highlight while writing a comment */
+mark.comment-highlight-pending {
+  background-color: rgba(205, 115, 87, 0.18);
+  border-bottom: 2px solid rgba(205, 115, 87, 0.5);
+  padding: 1px 0;
+  border-radius: 2px;
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  mark.comment-highlight {
+    background-color: rgba(214, 127, 99, 0.14);
+    border-bottom-color: rgba(214, 127, 99, 0.45);
+  }
+  mark.comment-highlight:hover,
+  mark.comment-highlight.active {
+    background-color: rgba(214, 127, 99, 0.3);
+    border-bottom-color: rgba(214, 127, 99, 0.8);
+  }
+  mark.comment-highlight-pending {
+    background-color: rgba(214, 127, 99, 0.18);
+    border-bottom-color: rgba(214, 127, 99, 0.5);
+  }
+}
+
+/* ─── Text selection ─── */
+::selection {
+  background: rgba(205, 115, 87, 0.22);
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: rgba(214, 127, 99, 0.28);
+  }
+}
