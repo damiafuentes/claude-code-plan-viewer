@@ -1,6 +1,6 @@
 {
   "name": "cc-plan-viewer",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Browser-based PR-style review UI for Claude Code plans",
   "type": "module",
   "bin": {
