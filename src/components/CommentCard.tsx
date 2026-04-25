@@ -23,6 +23,14 @@ export function CommentCard({ id, body, selectedText, top, active, onEdit, onDel
     }
   }, [editing]);
 
+  useEffect(() => {
+    if (!editing) return;
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = `${el.scrollHeight}px`;
+  }, [editing, editValue]);
+
   const handleSave = () => {
     if (editValue.trim()) {
       onEdit(id, editValue.trim());
@@ -60,8 +68,8 @@ export function CommentCard({ id, body, selectedText, top, active, onEdit, onDel
                 ref={textareaRef}
                 value={editValue}
                 onChange={(e) => setEditValue(e.target.value)}
-                rows={2}
-                className="w-full mt-1 bg-transparent text-sm text-claude-text-primary-light dark:text-claude-text-primary-dark resize-none border border-claude-border-light dark:border-claude-border-dark rounded p-1.5 outline-none focus:border-claude-accent-light dark:focus:border-claude-accent-dark leading-relaxed"
+                rows={1}
+                className="w-full mt-1 bg-transparent text-sm text-claude-text-primary-light dark:text-claude-text-primary-dark resize-none overflow-hidden border border-claude-border-light dark:border-claude-border-dark rounded p-1.5 outline-none focus:border-claude-accent-light dark:focus:border-claude-accent-dark leading-relaxed"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && e.metaKey) { e.preventDefault(); handleSave(); }
                   if (e.key === 'Escape') { setEditing(false); setEditValue(body); }
